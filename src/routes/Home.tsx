@@ -1,10 +1,15 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import { Helmet } from 'react-helmet'
 
 import PageTitle from '../components/PageTitle'
 
 const Home: React.FC = () => (
   <>
+    <Helmet>
+      <title>Home</title>
+    </Helmet>
+
     <Container>
       <PageTitle>Home</PageTitle>
 

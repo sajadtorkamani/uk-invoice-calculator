@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.26.0",
     "sass": "1.77.6",
     "vite": "^5.3.4"
@@ -27,6 +28,7 @@
     "@types/node": "^22.1.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^9.8.0",
