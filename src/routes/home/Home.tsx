@@ -9,7 +9,7 @@ import MoneyInput from '../../components/form/MoneyInput'
 import TextInput from '../../components/form/TextInput'
 import PageTitle from '../../components/PageTitle'
 import { APP_NAME } from '../../lib/constants'
-import invoiceService from '../../lib/invoiceService'
+import invoiceService from '../../lib/services/invoiceService'
 import Results from './components/Results'
 
 export interface InvoiceFormValues {

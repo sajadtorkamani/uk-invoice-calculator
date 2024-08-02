@@ -1,4 +1,4 @@
-import { InvoiceFormValues, InvoiceResults } from '../routes/home/Home'
+import { InvoiceFormValues, InvoiceResults } from '../../routes/home/Home'
 
 class InvoiceService {
   getResults(values: InvoiceFormValues): InvoiceResults {
