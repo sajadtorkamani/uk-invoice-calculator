@@ -6,7 +6,7 @@ import {
 
 import Root from '../components/Root'
 import About from '../routes/About'
-import Home from '../routes/Home'
+import Home from '../routes/home/Home'
 import { ROUTES } from './constants'
 
 export const router = createBrowserRouter(
