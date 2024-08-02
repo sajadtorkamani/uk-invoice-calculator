@@ -3,11 +3,12 @@ import { Container } from 'react-bootstrap'
 import { Helmet } from 'react-helmet'
 
 import PageTitle from '../components/PageTitle'
+import { APP_NAME } from '../lib/constants'
 
 const About: React.FC = () => (
   <>
     <Helmet>
-      <title>About</title>
+      <title>{APP_NAME} - About</title>
     </Helmet>
 
     <Container>

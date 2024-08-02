@@ -9,14 +9,14 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
-    ignores: ['dist/*', '.idea/*', '.vscode/*', '.storybook/main.js'],
+    ignores: ['dist/*', '.idea/*', '.vscode/*', '.storybook/main.js']
   },
   {
     ...eslint.configs.recommended,
     rules: {
       ...eslint.configs.recommended.rules,
-      'no-prototype-builtins': 'off',
-    },
+      'no-prototype-builtins': 'off'
+    }
   },
   ...tseslint.configs.recommended,
   {
@@ -27,24 +27,25 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/display-name': 'off',
       'react/prop-types': 'off',
-      'react/jsx-curly-brace-presence': 'warn',
+      'react/no-unknown-property': ['error', { ignore: ['css'] }],
+      'react/jsx-curly-brace-presence': 'warn'
     },
     settings: {
-      react: { version: 'detect' },
-    },
+      react: { version: 'detect' }
+    }
   },
   {
     plugins: {
-      'simple-import-sort': simpleImportSort,
+      'simple-import-sort': simpleImportSort
     },
     rules: {
       'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
-    },
+      'simple-import-sort/exports': 'error'
+    }
   },
   {
     plugins: {
-      'unused-imports': unusedImports,
+      'unused-imports': unusedImports
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
@@ -55,23 +56,23 @@ export default tseslint.config(
           vars: 'all',
           varsIgnorePattern: '^_',
           args: 'all',
-          argsIgnorePattern: '^_',
-        },
-      ],
-    },
+          argsIgnorePattern: '^_'
+        }
+      ]
+    }
   },
   {
     plugins: {
-      'react-hooks': fixupPluginRules(eslintPluginReactHooks),
+      'react-hooks': fixupPluginRules(eslintPluginReactHooks)
     },
     rules: {
-      ...eslintPluginReactHooks.configs.recommended.rules,
-    },
+      ...eslintPluginReactHooks.configs.recommended.rules
+    }
   },
   {
     ...eslintPrettier,
     rules: {
-      'prettier/prettier': 'error',
-    },
-  },
+      'prettier/prettier': 'error'
+    }
+  }
 )
