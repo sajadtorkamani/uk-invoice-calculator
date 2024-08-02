@@ -9,6 +9,7 @@ import MoneyInput from '../../components/form/MoneyInput'
 import TextInput from '../../components/form/TextInput'
 import PageTitle from '../../components/PageTitle'
 import { APP_NAME } from '../../lib/constants'
+import calendarService from '../../lib/services/calendarService'
 import invoiceService from '../../lib/services/invoiceService'
 import Results from './components/Results'
 
@@ -35,11 +36,13 @@ const InvoiceFormFields: Record<keyof InvoiceFormValues, string> = {
 
 const Home: React.FC = () => {
   const [results, setResults] = useState<InvoiceResults | undefined>()
+  const numDaysInCurrentMonth =
+    calendarService.getNumWorkingDaysInCurrentMonth()
 
   const initialValues: InvoiceFormValues = {
     dayRate: 400,
     hoursPerDay: 7.5,
-    numberOfDays: 21,
+    numberOfDays: numDaysInCurrentMonth,
     vat: false,
   }
 
