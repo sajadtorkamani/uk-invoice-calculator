@@ -6,6 +6,7 @@ class InvoiceService {
     const vatValue = values.vat ? subtotal * 0.2 : 0
 
     return {
+      hoursWorked: values.numberOfDays * values.hoursPerDay,
       subtotal,
       vat: vatValue,
       total: subtotal + vatValue,

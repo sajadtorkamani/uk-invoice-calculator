@@ -13,6 +13,12 @@ const Results: React.FC<Props> = ({ results }) => {
     <Table striped className="mb-4">
       <tbody>
         <tr>
+          <td>Hours worked</td>
+
+          <td>{results.hoursWorked}</td>
+        </tr>
+
+        <tr>
           <td>Subtotal</td>
 
           <td>{formatMoney(results.subtotal)}</td>

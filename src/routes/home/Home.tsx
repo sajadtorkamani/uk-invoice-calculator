@@ -14,11 +14,13 @@ import Results from './components/Results'
 
 export interface InvoiceFormValues {
   dayRate: number
+  hoursPerDay: number
   numberOfDays: number
   vat: boolean
 }
 
 export interface InvoiceResults {
+  hoursWorked: number
   subtotal: number
   vat: number
   total: number
@@ -26,6 +28,7 @@ export interface InvoiceResults {
 
 const InvoiceFormFields: Record<keyof InvoiceFormValues, string> = {
   dayRate: 'dayRate',
+  hoursPerDay: 'hoursPerDay',
   numberOfDays: 'numberOfDays',
   vat: 'vat',
 }
@@ -35,6 +38,7 @@ const Home: React.FC = () => {
 
   const initialValues: InvoiceFormValues = {
     dayRate: 400,
+    hoursPerDay: 7.5,
     numberOfDays: 21,
     vat: false,
   }
@@ -57,6 +61,14 @@ const Home: React.FC = () => {
             <Form>
               <FormGroup>
                 <MoneyInput label="Day rate" name={InvoiceFormFields.dayRate} />
+              </FormGroup>
+
+              <FormGroup>
+                <TextInput
+                  label="Hours per day"
+                  name={InvoiceFormFields.hoursPerDay}
+                  type="number"
+                />
               </FormGroup>
 
               <FormGroup>
