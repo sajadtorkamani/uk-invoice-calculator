@@ -57,9 +57,14 @@ const Home: React.FC = () => {
       </Helmet>
 
       <Container>
-        <div css={{ maxWidth: '400px' }}>
-          <PageTitle>Generate UK invoice</PageTitle>
+        <PageTitle>UK Invoice calculator</PageTitle>
 
+        <p className="mb-4">
+          Enter your details below to get a summary of how much you should
+          invoice your clients for.
+        </p>
+
+        <div css={{ maxWidth: '400px' }}>
           <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             <Form>
               <FormGroup>
@@ -97,9 +102,12 @@ const Home: React.FC = () => {
             </Form>
           </Formik>
 
-          <hr className="my-4" />
-
-          {results && <Results results={results} />}
+          {results && (
+            <>
+              <hr className="my-4" />
+              <Results results={results} />
+            </>
+          )}
         </div>
       </Container>
     </>

@@ -1,4 +1,4 @@
-export const APP_NAME = 'UK Invoice Generator'
+export const APP_NAME = 'UK invoice calculator'
 
 export const ROUTES = {
   home: '/',
