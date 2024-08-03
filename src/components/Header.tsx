@@ -12,19 +12,6 @@ const Header: React.FC = () => (
       <Link to={ROUTES.home} className="navbar-brand">
         {APP_NAME}
       </Link>
-
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <NavLink to={ROUTES.home} className="nav-link">
-            Home
-          </NavLink>
-
-          <NavLink to={ROUTES.about} className="nav-link">
-            About
-          </NavLink>
-        </Nav>
-      </Navbar.Collapse>
     </Container>
   </Navbar>
 )

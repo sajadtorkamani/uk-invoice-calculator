@@ -1,8 +1,7 @@
-export const APP_NAME = 'UK invoice calculator'
+export const APP_NAME = 'UK Invoice calculator'
 
 export const ROUTES = {
   home: '/',
-  about: '/about',
 }
 
 export const THEME_PALETTE = {

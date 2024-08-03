@@ -12,27 +12,29 @@ const Results: React.FC<Props> = ({ results }) => {
   return (
     <Table striped className="mb-4">
       <tbody>
-        <tr>
-          <td>Hours worked</td>
+      <tr>
+        <td>Hours worked</td>
 
-          <td>{results.hoursWorked}</td>
-        </tr>
+        <td>{results.hoursWorked}</td>
+      </tr>
 
-        <tr>
-          <td>Subtotal</td>
+      <tr>
+        <td>Subtotal</td>
 
-          <td>{formatMoney(results.subtotal)}</td>
-        </tr>
+        <td>{formatMoney(results.subtotal)}</td>
+      </tr>
 
+      {results.vat > 0 && (
         <tr>
           <td>VAT (20%)</td>
           <td>{formatMoney(results.vat)}</td>
         </tr>
+      )}
 
-        <tr>
-          <td className="fw-bold">Total</td>
-          <td className="fw-bold">{formatMoney(results.total)}</td>
-        </tr>
+      <tr>
+        <td className="fw-bold">Total</td>
+        <td className="fw-bold">{formatMoney(results.total)}</td>
+      </tr>
       </tbody>
     </Table>
   )

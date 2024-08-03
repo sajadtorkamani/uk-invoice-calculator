@@ -4,4 +4,12 @@
   box-sizing: border-box;
 }
 
+.text-xs {
+  font-size: 12px;
+}
+
+.text-inherit {
+    color: inherit;
+}
+
 @import 'bootstrap/scss/bootstrap';

@@ -1,5 +1,5 @@
 import { Form, Formik } from 'formik'
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { Helmet } from 'react-helmet'
 
@@ -10,8 +10,9 @@ import TextInput from '../../components/form/TextInput'
 import PageTitle from '../../components/PageTitle'
 import { APP_NAME } from '../../lib/constants'
 import calendarService from '../../lib/services/calendarService'
-import invoiceService from '../../lib/services/invoiceService'
 import Results from './components/Results'
+import { useCalculateResultsMutation } from './useCalculateResultsMutation'
+import invoiceService from "../../lib/services/invoiceService";
 
 export interface InvoiceFormValues {
   dayRate: number
@@ -35,9 +36,9 @@ const InvoiceFormFields: Record<keyof InvoiceFormValues, string> = {
 }
 
 const Home: React.FC = () => {
-  const [results, setResults] = useState<InvoiceResults | undefined>()
   const numDaysInCurrentMonth =
     calendarService.getNumWorkingDaysInCurrentMonth()
+  const calculateResultsMutation = useCalculateResultsMutation()
 
   const initialValues: InvoiceFormValues = {
     dayRate: 400,
@@ -46,9 +47,7 @@ const Home: React.FC = () => {
     vat: false,
   }
 
-  function handleSubmit(values: InvoiceFormValues) {
-    setResults(invoiceService.getResults(values))
-  }
+  const results = calculateResultsMutation.data
 
   return (
     <>
@@ -65,7 +64,12 @@ const Home: React.FC = () => {
         </p>
 
         <div css={{ maxWidth: '400px' }}>
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={(values: InvoiceFormValues) =>
+              calculateResultsMutation.mutate(values)
+            }
+          >
             <Form>
               <FormGroup>
                 <MoneyInput label="Day rate" name={InvoiceFormFields.dayRate} />
@@ -85,6 +89,13 @@ const Home: React.FC = () => {
                   name={InvoiceFormFields.numberOfDays}
                   type="number"
                 />
+
+                <div className="text-xs text-muted mt-1">
+                  Don't forget to account for <a
+                  href="https://www.gov.uk/bank-holidays" target="_blank"
+                  className="text-inherit">bank
+                  holidays</a>
+                </div>
               </FormGroup>
 
               <FormGroup className="d-flex gap-2 align-items-center">
@@ -96,8 +107,8 @@ const Home: React.FC = () => {
 
               <hr className="my-4" />
 
-              <Button size="lg" type="submit">
-                Generate
+              <Button type="submit">
+                Calculate
               </Button>
             </Form>
           </Formik>
