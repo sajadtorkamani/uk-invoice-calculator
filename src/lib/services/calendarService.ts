@@ -6,12 +6,9 @@ class CalendarService {
 
     for (let day = 1; day <= numDaysInMonth; day++) {
       const date = new Date(today.getFullYear(), today.getMonth(), day)
+      const isWeekend = date.getDay() === 0 || date.getDay() === 6
 
-      console.log({ date })
-
-      console.log(date.getDay())
-
-      if (date.getDay() !== 0 && date.getDay() !== 6) {
+      if (!isWeekend) {
         numWorkingDays++
       }
     }
