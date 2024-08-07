@@ -2,11 +2,15 @@ import { InvoiceFormValues, InvoiceResults } from '../../routes/home/Home'
 
 class InvoiceService {
   getResults(values: InvoiceFormValues): InvoiceResults {
-    const subtotal = values.dayRate * values.numberOfDays
+    const dayRate = values.dayRate || 0
+    const hoursPerDay = values.hoursPerDay || 0
+    const numberOfDays = values.numberOfDays || 0
+
+    const subtotal = dayRate * numberOfDays
     const vatValue = values.vat ? subtotal * 0.2 : 0
 
     return {
-      hoursWorked: values.numberOfDays * values.hoursPerDay,
+      hoursWorked: numberOfDays * hoursPerDay,
       subtotal,
       vat: vatValue,
       total: subtotal + vatValue,

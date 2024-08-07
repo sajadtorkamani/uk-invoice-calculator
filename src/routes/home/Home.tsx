@@ -52,7 +52,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{APP_NAME} - About</title>
+        <title>{APP_NAME}</title>
       </Helmet>
 
       <Container>
@@ -80,6 +80,7 @@ const Home: React.FC = () => {
                   label="Hours per day"
                   name={InvoiceFormFields.hoursPerDay}
                   type="number"
+                  placeholder="Add your hours per day"
                 />
               </FormGroup>
 
@@ -87,6 +88,7 @@ const Home: React.FC = () => {
                 <TextInput
                   label="Days worked"
                   name={InvoiceFormFields.numberOfDays}
+                  placeholder="Add the number of days worked"
                   type="number"
                 />
 
