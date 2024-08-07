@@ -44,7 +44,7 @@ const Home: React.FC = () => {
     dayRate: 400,
     hoursPerDay: 7.5,
     numberOfDays: numDaysInCurrentMonth,
-    vat: false,
+    vat: true,
   }
 
   const results = calculateResultsMutation.data
